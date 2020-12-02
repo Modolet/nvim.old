@@ -1,3 +1,6 @@
+" COC extensions
+let g:coc_global_extensions = ['coc-snippets','coc-marketplace','coc-vimlsp','coc-sh','coc-r-lsp','coc-pyright','coc-json','coc-java','coc-html','coc-css','coc-cmake','coc-clangd','coc-tsserver']
+
 call plug#begin('~/.config/nvim/plugged')
 	"书呆子树
 	Plug 'scrooloose/nerdtree'
@@ -61,4 +64,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'mzlogin/vim-markdown-toc'
 	"聊天
 	Plug 'wsdjeg/vim-chat'
+	"浮动终端
+	Plug 'voldikss/vim-floaterm'
 call plug#end()
