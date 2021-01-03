@@ -1,5 +1,5 @@
 " COC extensions
-let g:coc_global_extensions = ['coc-snippets','coc-marketplace','coc-vimlsp','coc-sh','coc-r-lsp','coc-pyright','coc-json','coc-java','coc-html','coc-css','coc-cmake','coc-clangd','coc-tsserver']
+let g:coc_global_extensions = ['coc-snippets','coc-marketplace','coc-vimlsp','coc-sh','coc-r-lsp','coc-pyright','coc-json','coc-java','coc-html','coc-css','coc-cmake','coc-clangd','coc-tsserver','coc-xml']
 
 call plug#begin('~/.config/nvim/plugged')
 	"书呆子树
@@ -18,7 +18,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'iamcco/markdown-preview.vim'
 	Plug 'itchyny/lightline.vim'
 	"括号补全
-	Plug 'Raimondi/delimitMate'
+	"Plug 'Raimondi/delimitMate'
+	Plug 'jiangmiao/auto-pairs'
 	"中文文档
 	Plug 'yianwillis/vimcdoc'
 	"表格插件
@@ -66,4 +67,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'wsdjeg/vim-chat'
 	"浮动终端
 	Plug 'voldikss/vim-floaterm'
-call plug#end()
+	"调试器
+	Plug 'puremourning/vimspector'
+	call plug#end()
