@@ -22,6 +22,7 @@
 ## 安装该配置之前需要做的事
 - [ ] 安装 `pynvim` (使用`pip`)
 - [ ] 安装 `nodejs`
+- [ ] 在插件bracey目录执行`npm install --prefix server`
 
 ## 快捷键
 ### 1 基础编辑器快捷键

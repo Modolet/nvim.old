@@ -135,4 +135,4 @@ omap ac <Plug>(coc-classobj-a)
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 " Translate
-nnoremap <leader>tr :CocCommand translator.popup<CR>
+nnoremap <leader>t :CocCommand translator.popup<CR>
