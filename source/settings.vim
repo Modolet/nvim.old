@@ -1,5 +1,20 @@
 "真彩色终端
-set termguicolors
+if (empty($TMUX))
+  if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+
+" set background=dark " for the dark version
+"set background=light " for the light version
+"colorscheme one
+"let g:lightline = {
+"			\'colorscheme':'one',
+"			\}
 
 "主题
 "ayu
@@ -25,7 +40,11 @@ set termguicolors
 "set tags+=~/.vim/tags/qt
 
 "gruvbox
+set background=light
 colorscheme gruvbox
+let g:lightline = {
+	\ 'colorscheme':'ayu_light',
+	\}
 
 "不区分大小写
 set ic
@@ -34,8 +53,7 @@ set ic
 set mouse=a
 
 "设置缩进
-set ts=4
-set sw=4
+set ts=4 sw=4 et
 
 "其他设置
 set scrolloff=5
@@ -50,6 +68,8 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 "自动识别文件编码
 set encoding=utf-8 fileencodings=utf-8,usc-bom,cp936,gbk,gb2312,utf-16le
 
+"记忆上次编辑的位置
+au BufReadPost * if line("'\"") > 0|if line("'\"") <=line("$")|exe("norm '\"")|else|exe "norm$"|endif|endif
 "一些设置
 syntax on       "代码高亮
 set hlsearch 	"搜索高亮"

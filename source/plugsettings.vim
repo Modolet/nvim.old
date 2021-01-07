@@ -1,4 +1,36 @@
- "Nerdtree
+"nerdcommenter
+"注释插件
+map <C-n> <space>c<space>
+imap <C-n> <esc><space>c<space>i
+"创建默认映射，
+let g:NERDCreateDefaultMappings=1
+
+"indentLine
+let g:indentLine_conceallevel = 2
+"在默认情况下添加注释分隔后的空间
+let g:NERDSpaceDelims=1
+
+"对紧凑的多行注释使用紧凑语法，
+let g:NERDCompactSexyComs=1
+
+"将行注释注释定界符向左对齐
+let g:NERDDefaultAlign='left'
+
+"将语言设置为默认使用其替代定界符
+let g:NERDAltDelims_java=1
+
+"加入自己的自定义格式或覆盖默认
+let g:NERDCustomDelimiters={'c':{'left':'//'}}
+
+"允许注释和倒空行（在注释区域时很有用），
+let g:NERDCommentEmptyLines=1
+
+"取消注释时启用尾随空格的修剪，
+let g:NERDTrimTrailingWhitespace=1
+
+"启用NERDCommenterToggle检查所有选择的线被注释或不
+let g:NERDToggleCheckAllLines=1
+"Nerdtree
 "打开目录时打开Nerdtree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif

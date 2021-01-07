@@ -7,10 +7,6 @@ call plug#begin('~/.config/nvim/plugged')
 	"代码片段
 	"Plug 'SirVer/ultisnips'
 	Plug 'honza/vim-snippets'
-	"自动补全
-	"Plug 'ycm-core/YouCompleteMe'
-	"语法检查
-	"Plug 'dense-analysis/ale'
 	"markdown
 	Plug 'plasticboy/vim-markdown'
 	Plug 'majutsushi/tagbar'
@@ -20,6 +16,8 @@ call plug#begin('~/.config/nvim/plugged')
 	"括号补全
 	"Plug 'Raimondi/delimitMate'
 	Plug 'jiangmiao/auto-pairs'
+	"注释插件
+	Plug 'preservim/nerdcommenter'
 	"中文文档
 	Plug 'yianwillis/vimcdoc'
 	"表格插件
@@ -30,6 +28,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'soft-aesthetic/soft-era-vim'
 	Plug 'liuchengxu/space-vim-theme'
 	Plug 'ayu-theme/ayu-vim'
+	Plug 'rakr/vim-one'
 	"html实时预览
 	Plug 'turbio/bracey.vim'
 	"html引擎
@@ -51,8 +50,8 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'junegunn/fzf', {'dir': '~/.fzf','do': './install --all'}
 	Plug 'junegunn/fzf.vim' " needed for previews
 	"竖线
-	Plug 'nathanaelkane/vim-indent-guides'
-	"Plug 'Yggdroot/indentLine'
+	"Plug 'nathanaelkane/vim-indent-guides'
+	Plug 'Yggdroot/indentLine'
 	"git侧边栏
 	Plug 'airblade/vim-gitgutter'
 	"注释工具
