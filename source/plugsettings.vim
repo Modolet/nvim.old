@@ -1,7 +1,7 @@
 "nerdcommenter
 "注释插件
-map <C-n> <space>c<space>
-imap <C-n> <esc><space>c<space>i
+map <C-p> <space>c<space>
+imap <C-p> <esc><space>c<space>i
 "创建默认映射，
 let g:NERDCreateDefaultMappings=1
 
@@ -138,10 +138,10 @@ nnoremap <silent> <leader>hl :call <SID>show_documentation()<CR>
 "Highlight the symbol and its references when holding the cursor.高亮同一符号
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " Symbol renaming.重命名变量
-nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>r <Plug>(coc-rename)
 " Formatting selected code.代码格式化
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>f <Plug>(coc-format-selected)
+nmap <leader>f <Plug>(coc-format-selected)
 " Applying codeAction to the selected region.就像vs-code的右键
 " Example: `<leader>aap` for current paragraph
 " 做了一些修改 from TheCW
@@ -167,4 +167,5 @@ omap ac <Plug>(coc-classobj-a)
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 " Translate
-nnoremap <leader>t :CocCommand translator.popup<CR>
+nmap <leader>t <Plug>(coc-translator-p)
+vmap <leader>t <Plug>(coc-translator-pv)

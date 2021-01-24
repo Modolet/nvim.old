@@ -22,7 +22,7 @@ map <LEADER><CR> :nohlsearch<CR>
 "开启关闭NERDTree插件（文件列表
 map tt :NERDTreeToggle<CR>
 "忘了是干嘛的
-map <LEADER>t <c-w><c-z>
+"map <LEADER>t <c-w><c-z>
 "在四个位置分屏
 map sh :set nosplitright<CR>:vsplit<CR>
 map sl :set splitright<CR>:vsplit<CR>
@@ -51,7 +51,7 @@ map <down> :res -3<CR>
 map <left> :vertical resize -3<CR>
 map <right> :vertical resize +3<CR>
 "r键功能，调用下面的compilerun函数
-map r :call CompileRun()<CR>
+nnoremap r :call CompileRun()<CR>
 "R键功能，刷新
 map R :call F5()<CR>
 "这里没啥用

@@ -68,4 +68,10 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'voldikss/vim-floaterm'
 	"调试器
 	Plug 'puremourning/vimspector'
-	call plug#end()
+    "包围插件
+    Plug 'tpope/vim-surround'
+    "选择插件
+    Plug 'gcmt/wildfire.vim'
+    "多光标
+    Plug 'mg979/vim-visual-multi' 
+    call plug#end()
