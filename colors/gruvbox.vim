@@ -272,7 +272,8 @@ let s:gb.orange = s:orange
 " Setup Terminal Colors For Neovim: {{{
 
 if has('nvim')
-  let g:terminal_color_0 = s:bg0[0]
+  "let g:terminal_color_0 = s:bg0[0]
+  let g:terminal_color_0 = '#FFFFFFFF'
   let g:terminal_color_8 = s:gray[0]
 
   let g:terminal_color_1 = s:gb.neutral_red[0]
@@ -415,7 +416,8 @@ function! s:HL(group, fg, ...)
   endif
 
   execute join(histring, ' ')
-endfunction
+  hi Normal guibg=None
+  endfunction
 
 " }}}
 " Gruvbox Hi Groups: {{{

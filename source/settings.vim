@@ -40,12 +40,14 @@ endif
 "set tags+=~/.vim/tags/qt
 
 "gruvbox
-"set background=light
-"colorscheme gruvbox
-"let g:lightline = {
-"	\ 'colorscheme':'ayu_light',
-"	\}
+set background=dark
+colorscheme gruvbox
+let g:lightline = {
+	\ 'colorscheme':'ayu_light',
+	\}
 
+"透明背景
+hi Normal guibg=#ffffffff
 "不区分大小写
 set ic
 
