@@ -95,3 +95,7 @@ set laststatus=2
 if !has('gui_running')
 	set t_Co=256
 endif
+
+"代码折叠状态保存
+au BufWinLeave * silent mkview
+au BufWinEnter * silent loadview

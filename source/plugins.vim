@@ -11,7 +11,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'plasticboy/vim-markdown'
 	Plug 'majutsushi/tagbar'
 	Plug 'mbbill/undotree'
-	Plug 'iamcco/markdown-preview.vim'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 	Plug 'itchyny/lightline.vim'
 	"括号补全
 	"Plug 'Raimondi/delimitMate'

@@ -35,6 +35,8 @@ map tu :tabe<CR>
 "切换标签页
 map tn :-tabnext<CR>
 map ti :+tabnext<CR>
+"关闭标签页
+map tq :tabc<CR>
 "切换分屏
 map <LEADER>h <C-w>h
 map <LEADER>j <C-w>j
