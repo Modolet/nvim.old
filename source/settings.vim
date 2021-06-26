@@ -71,7 +71,9 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 set encoding=utf-8 fileencodings=utf-8,usc-bom,cp936,gbk,gb2312,utf-16le
 
 "记忆上次编辑的位置
-au BufReadPost * if line("'\"") > 0|if line("'\"") <=line("$")|exe("norm '\"")|else|exe "norm$"|endif|endif
+if has("autocmd")                                                          
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 "一些设置
 syntax on       "代码高亮
 set hlsearch 	"搜索高亮"
@@ -97,5 +99,8 @@ if !has('gui_running')
 endif
 
 "代码折叠状态保存
-au BufWinLeave * silent mkview
-au BufWinEnter * silent loadview
+"
+if has("autocmd")
+    au BufWinLeave * if line("'\"") > 1 && line ("'\"") <= line("$") | silent mkview | endif
+    au BufWinEnter * if line("'\"") > 1 && line ("'\"") <= line("$") | silent loadview | endif
+endif
