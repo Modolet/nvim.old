@@ -8,7 +8,6 @@ if (empty($TMUX))
   endif
 endif
 
-
 " set background=dark " for the dark version
 "set background=light " for the light version
 "colorscheme one
@@ -101,6 +100,9 @@ endif
 "代码折叠状态保存
 "
 if has("autocmd")
-    au BufWinLeave * if line("'\"") > 1 && line ("'\"") <= line("$") | silent mkview | endif
     au BufWinEnter * if line("'\"") > 1 && line ("'\"") <= line("$") | silent loadview | endif
 endif
+if has("autocmd")
+    au BufWinLeave * if line("'\"") > 1 && line ("'\"") <= line("$") | silent mkview | endif
+endif
+
