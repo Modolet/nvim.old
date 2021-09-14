@@ -1,5 +1,6 @@
 " COC extensions
-let g:coc_global_extensions = ['coc-snippets','coc-marketplace','coc-vimlsp','coc-sh','coc-r-lsp','coc-pyright','coc-json','coc-java','coc-html','coc-css','coc-cmake','coc-clangd','coc-tsserver','coc-xml','coc-translator']
+
+let g:coc_global_extensions = ['coc-snippets','coc-marketplace','coc-vimlsp','coc-sh','coc-pyright','coc-json','coc-html','coc-css','coc-cmake','coc-clangd','coc-xml','coc-emmet']
 
 call plug#begin('~/.config/nvim/plugged')
 	"书呆子树
@@ -13,9 +14,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'mbbill/undotree'
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 	Plug 'itchyny/lightline.vim'
-	"括号补全
-	"Plug 'Raimondi/delimitMate'
-	Plug 'jiangmiao/auto-pairs'
 	"注释插件
 	Plug 'preservim/nerdcommenter'
 	"中文文档
@@ -32,17 +30,13 @@ call plug#begin('~/.config/nvim/plugged')
 	"html实时预览
 	Plug 'turbio/bracey.vim'
 	"html引擎
-	Plug 'mattn/emmet-vim'
+	Plug 'mattn/emmet-vim', {'do': 'npm install --prefix server'}
 	"CSS syntax
 	Plug 'hail2u/vim-css3-syntax'
 	"CSS LESS support
 	Plug 'groenewege/vim-less'
-	"JavaScript 语法高亮
-	Plug 'pangloss/vim-javascript'
-	"JavaScript omnifunc
-	Plug 'marijnh/tern_for_vim'
 	"Qt Support
-	Plug 'fedorenchik/qt-support.vim'
+	"Plug 'fedorenchik/qt-support.vim'
 	"COC
 	Plug 'neoclide/coc.nvim',{'branch':'release'}
 	Plug 'antoinemadec/coc-fzf'
@@ -63,7 +57,7 @@ call plug#begin('~/.config/nvim/plugged')
 	"markdown TOC
 	Plug 'mzlogin/vim-markdown-toc'
 	"聊天
-	Plug 'wsdjeg/vim-chat'
+	"Plug 'wsdjeg/vim-chat'
 	"浮动终端
 	Plug 'voldikss/vim-floaterm'
 	"调试器

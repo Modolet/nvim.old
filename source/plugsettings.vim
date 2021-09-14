@@ -5,6 +5,9 @@ imap <C-p> <esc><space>c<space>i
 "创建默认映射，
 let g:NERDCreateDefaultMappings=1
 
+"bracey
+let g:bracey_browser_command='chrome'
+
 "indentLine
 let g:indentLine_conceallevel = 2
 "在默认情况下添加注释分隔后的空间

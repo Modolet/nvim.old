@@ -7,8 +7,7 @@
         "json",
         "python",
         "c",
-        "cpp",
-        "java"
+        "cpp"
     ],
-    "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/home/modolet/.config/coc/extensions/node_modules/coc-java-lombok/jar/lombok.jar\""
+    "python.venvPath": "/home/modolet/.PythonEnvs"
 }
