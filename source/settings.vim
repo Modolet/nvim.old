@@ -69,10 +69,6 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 "自动识别文件编码
 set encoding=utf-8 fileencodings=utf-8,usc-bom,cp936,gbk,gb2312,utf-16le
 
-"记忆上次编辑的位置
-if has("autocmd")                                                          
-    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
 "一些设置
 syntax on       "代码高亮
 set hlsearch 	"搜索高亮"
@@ -97,6 +93,11 @@ if !has('gui_running')
 	set t_Co=256
 endif
 
+"记忆上次编辑的位置
+if has("autocmd")                                                          
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
 "代码折叠状态保存
 "
 if has("autocmd")
@@ -106,3 +107,7 @@ if has("autocmd")
     au BufWinLeave * if line("'\"") > 1 && line ("'\"") <= line("$") | silent mkview | endif
 endif
 
+"自动创建索引
+if has("autocmd")
+    au BufEnter * if filereadable("compile_commands.json") == 0 | :call CUpdate()<CR> | endif
+endif

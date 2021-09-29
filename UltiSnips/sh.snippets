@@ -1,0 +1,24 @@
+snippet winbuild "windows build shell"
+#!/bin/sh
+exe="${1:name}.exe"
+A="\$1"
+if [[ "\$A" == "update" ]];
+then
+    cmake -H"./" -B"./build" -DCMAKE_BUILD_TYPE=MinSizeRel
+    cp ./build/compile_commands.json .
+    exit 0
+else
+    ccmake="/home/modolet/mxe/usr/bin/x86_64-w64-mingw32.static-cmake"
+    $ccmake -H"./" -B"./build" -DCMAKE_BUILD_TYPE=MinSizeRel
+fi
+if [[ "\$A" != "update" ]];
+then
+    cd build
+    make -j16
+    if [[ "\$A" == r* ]];
+    then
+        echo 运行$exe
+        ./$exe
+    fi
+fi
+endsnippet

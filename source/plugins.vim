@@ -1,18 +1,24 @@
 " COC extensions
 
-let g:coc_global_extensions = ['coc-snippets','coc-marketplace','coc-vimlsp','coc-sh','coc-pyright','coc-json','coc-html','coc-css','coc-cmake','coc-clangd','coc-xml','coc-emmet']
+" let g:coc_global_extensions = ['coc-snippets','coc-marketplace','coc-vimlsp','coc-sh','coc-pyright','coc-json','coc-cmake','coc-clangd','coc-xml','coc-emmet']
 
 call plug#begin('~/.config/nvim/plugged')
 	"书呆子树
 	Plug 'scrooloose/nerdtree'
+    " Git插件
+    Plug 'tpope/vim-fugitive'
 	"代码片段
-	"Plug 'SirVer/ultisnips'
+    Plug 'SirVer/ultisnips'
 	Plug 'honza/vim-snippets'
 	"markdown
 	Plug 'plasticboy/vim-markdown'
+    " 函数列表
 	Plug 'majutsushi/tagbar'
+    " 顾名思义 救命用
 	Plug 'mbbill/undotree'
+    " Markdown预览
     Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+    " 状态栏插件
 	Plug 'itchyny/lightline.vim'
 	"注释插件
 	Plug 'preservim/nerdcommenter'
@@ -27,6 +33,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'liuchengxu/space-vim-theme'
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'rakr/vim-one'
+    Plug 'altercation/vim-colors-solarized'
 	"html实时预览
 	Plug 'turbio/bracey.vim'
 	"html引擎
@@ -56,8 +63,6 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'kkoomen/vim-doge'
 	"markdown TOC
 	Plug 'mzlogin/vim-markdown-toc'
-	"聊天
-	"Plug 'wsdjeg/vim-chat'
 	"浮动终端
 	Plug 'voldikss/vim-floaterm'
 	"调试器

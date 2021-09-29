@@ -63,6 +63,8 @@ let g:vim_markdown_folding_disabled=1
 let g:UltiSnipsExpandTrigger="<c-e>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>""
+" let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/UltiSnips', 'UltiSnips']
+let g:UltiSnipsSnippetDirectories = ['UltiSnips']
 "Enable emmet in different mode
 let g:user_emmet_mode='a'
 
@@ -146,10 +148,9 @@ nmap <leader>r <Plug>(coc-rename)
 xmap <leader>f <Plug>(coc-format-selected)
 nmap <leader>f <Plug>(coc-format-selected)
 " Applying codeAction to the selected region.就像vs-code的右键
-" Example: `<leader>aap` for current paragraph
 " 做了一些修改 from TheCW
-"xmap <leader>a  <Plug>(coc-codeaction-selected)
-"nmap <leader>a  <Plug>(coc-codeaction-selected)
+xmap <leader>p  <Plug>(coc-codeaction-selected)
+nmap <leader>p  <Plug>(coc-codeaction-selected)
 " Remap for do codeAction of selected region
 function! s:cocActionsOpenFromSelected(type) abort
   execute 'CocCommand actions.open ' . a:type

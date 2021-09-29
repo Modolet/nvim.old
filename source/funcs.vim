@@ -5,6 +5,15 @@ let $author_name = "Modolet"
 function SetTitle()
 endfunction
 
+" CmakeUpdate
+func! CUpdate()
+    if filereadable('build.sh')
+        :!sh build.sh update
+    else
+        echo "未找到build.sh!"
+    endif
+endfunction
+
 "F5功能
 func! F5()
 	exec "w"
@@ -54,6 +63,10 @@ endfunction
 "r键功能
 func! CompileRun()
 	exec "w"
+    if filereadable('build.sh')
+        :!sh build.sh run
+        return
+    endif
 	if &filetype == 'c'
 		exec "!gcc % -o %<"
 		exec "FloatermNew time ./%<"

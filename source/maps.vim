@@ -56,6 +56,8 @@ map <left> :vertical resize -3<CR>
 map <right> :vertical resize +3<CR>
 "r键功能，调用下面的compilerun函数
 nnoremap r :call CompileRun()<CR>
+"LEADER u 用于刷新补全文件
+map <LEADER>u :call CUpdate()<CR> 
 "R键功能，刷新
 map R :call F5()<CR>
 "这里没啥用
