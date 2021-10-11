@@ -4,17 +4,17 @@ exe="${1:name}.exe"
 A="\$1"
 if [[ "\$A" == "update" ]];
 then
-    cmake -H"./" -B"./build" -DCMAKE_BUILD_TYPE=MinSizeRel
-    cp ./build/compile_commands.json .
+    cmake -H"./" -B"./.temp/ubuild" -DCMAKE_BUILD_TYPE=MinSizeRel -G "Ninja"
+    cp ./.temp/ubuild/compile_commands.json .
     exit 0
 else
     ccmake="/home/modolet/mxe/usr/bin/x86_64-w64-mingw32.static-cmake"
-    $ccmake -H"./" -B"./build" -DCMAKE_BUILD_TYPE=MinSizeRel
+    $ccmake -H"./" -B"./build" -DCMAKE_BUILD_TYPE=MinSizeRel -G "Ninja"
 fi
 if [[ "\$A" != "update" ]];
 then
     cd build
-    make -j16
+	ninja all
     if [[ "\$A" == r* ]];
     then
         echo 运行$exe

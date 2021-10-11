@@ -3,6 +3,8 @@
 " let g:coc_global_extensions = ['coc-snippets','coc-marketplace','coc-vimlsp','coc-sh','coc-pyright','coc-json','coc-cmake','coc-clangd','coc-xml','coc-emmet']
 
 call plug#begin('~/.config/nvim/plugged')
+    " 翻译插件
+    Plug 'voldikss/vim-translator'
 	"书呆子树
 	Plug 'scrooloose/nerdtree'
     " Git插件

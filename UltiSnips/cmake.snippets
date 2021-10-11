@@ -2,13 +2,29 @@ snippet appqtgui "QtGuiApplication"
 cmake_minimum_required(VERSION 3.2)
 project(${1:projectName})
 
-set(CMAKE_CXX_STANDARD ${2:17})
-set(CMAKE_EXE_LINKER_FLAGS -static)
+
+set(CMAKE_CXX_STANDARD 17)
+# set(CMAKE_EXE_LINKER_FLAGS -static)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ${3:ON})
+set(CMAKE_AUTOUIC_SEARCH_PATHS ${PROJECT_SOURCE_DIR}/ui)
+
+# Qt类的头文件和源文件不在同一个位置时，需要将头文件添加到add_executable或add_library里
+file(GLOB QT_HEADER ${PROJECT_SOURCE_DIR}/include/*.h)
+
+# 头文件
+include_directories(
+    PROJECT_SOURCE_DIR/include/
+    )
+
+# 源文件
+aux_source_directory(
+    src DIR_SRCS
+    )
 
 find_package(Qt5 COMPONENTS
     Core
@@ -16,16 +32,8 @@ find_package(Qt5 COMPONENTS
     Widgets
     REQUIRED)
 
-include_directories(
-    ${PROJECT_SOURCE_DIR}/include/
-    )
-
-aux_source_directory(
-    src DIR_SRCS
-    )
-
 add_executable(${1}
-    \${DIR_SRCS}
+    ${DIR_SRCS}
     )
 
 target_link_libraries(${1}
@@ -33,16 +41,25 @@ target_link_libraries(${1}
     Qt5::Gui
     Qt5::Widgets
     )
-${0}
 endsnippet
 
 snippet wincc "global mingw compiler"
-set(CMAKE_SYSTEM_NAME Windows)
-set(CMAKE_FIND_ROOT_PATH /usr/x86_64-w64-mingw32)
-set(CMAKE_C_COMPILER /usr/bin/x86_64-w64-mingw32-gcc)
-set(CMAKE_CXX_COMPILER /usr/bin/x86_64-w64-mingw32-g++)
-set(CMAKE_RC_COMPILER /usr/bin/x86_64-w64-mingw32-windres)
-set(CMAKE_PREFIX_PATH ~/mxe/usr/x86_64-w64-mingw32.static/qt5/lib/cmake)
+if(UNIX)
+    message(STATUS "-------------------------Config Unix-------------------------")
+    set(CMAKE_SYSTEM_NAME Windows)
+    set(CMAKE_C_COMPILER /usr/bin/x86_64-w64-ming32-gcc)
+    set(CMAKE_CXX_COMPILER /usr/bin/x86_64-w64-ming32-g++)
+    set(CMAKE_RC_COMPILER /usr/bin/x86_64-w64-mingw32-windres)
+    set(CMAKE_FIND_ROOT_PATH /usr/x86_64-w64-mingw32)
+    set(CMAKE_PREFIX_PATH /usr/x86_64-w64-mingw32/lib/cmake)
+elseif(WIN32)
+	message(STATUS "-------------------------Config Win32-------------------------")
+    set(CMAKE_PREFIX_PATH D:/QTLibrary/Qt5.15.2-Windows-x86_64-MSVC2019-staticFull/lib/cmake)
+    if(MSVC)
+        set(CMAKE_CXX_FLAGS "/utf-8 /EHs")
+        set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+    endif(MSVC)
+endif(UNIX)
 ${0}
 endsnippet
 

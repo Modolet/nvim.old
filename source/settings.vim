@@ -8,6 +8,12 @@ if (empty($TMUX))
   endif
 endif
 
+" 设置默认折叠方式为缩进
+set foldmethod=indent
+" 关闭打开时自动折叠
+set foldlevelstart=99
+
+
 " set background=dark " for the dark version
 "set background=light " for the light version
 "colorscheme one
@@ -32,11 +38,6 @@ endif
 "let g:lightline = {
 "	\ 'colorscheme':'ayu_light',
 "	\}
-""configure tags
-"set tags+=~/.vim/tags/cpp
-"set tags+=~/.vim/tags/gl
-"set tags+=~/.vim/tags/sdl
-"set tags+=~/.vim/tags/qt
 
 "gruvbox
 set background=dark
@@ -75,6 +76,7 @@ set hlsearch 	"搜索高亮"
 set showcmd     "展示指令
 set wrap        "自动换行
 set wildmenu    "菜单选择
+set relativenumber "相对行号
 set number	"行号
 let &t_ut = ' '
 
@@ -107,7 +109,7 @@ if has("autocmd")
     au BufWinLeave * if line("'\"") > 1 && line ("'\"") <= line("$") | silent mkview | endif
 endif
 
-"自动创建索引
-if has("autocmd")
-    au BufEnter * if filereadable("compile_commands.json") == 0 | :call CUpdate()<CR> | endif
-endif
+" "自动创建索引
+" if has("autocmd")
+"     au BufEnter * if filereadable("compile_commands.json") == 0 | :call CUpdate()<CR> | endif
+" endif

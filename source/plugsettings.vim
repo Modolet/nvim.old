@@ -5,6 +5,19 @@ imap <C-p> <esc><space>c<space>i
 "创建默认映射，
 let g:NERDCreateDefaultMappings=1
 
+" vim-translator
+let g:translator_default_engines=['bing','haici']
+" Echo translation in the cmdline
+nmap <silent> <Leader>wt <Plug>Translate
+vmap <silent> <Leader>wt <Plug>TranslateV
+" Display translation in a window
+nmap <silent> <Leader>ww <Plug>TranslateW
+vmap <silent> <Leader>ww <Plug>TranslateWV
+" Replace the text with translation
+nmap <silent> <Leader>wr <Plug>TranslateR
+vmap <silent> <Leader>wr <Plug>TranslateRV
+
+
 "bracey
 let g:bracey_browser_command='chrome'
 
@@ -170,6 +183,3 @@ omap ac <Plug>(coc-classobj-a)
 " Requires 'textDocument/selectionRange' support of language server.
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
-" Translate
-nmap <leader>t <Plug>(coc-translator-p)
-vmap <leader>t <Plug>(coc-translator-pv)

@@ -23,8 +23,6 @@ map <LEADER><CR> :nohlsearch<CR>
 map tt :NERDTreeToggle<CR>
 "开启浮动终端
 nmap tc :FloatermNew --height=0.9 --width=0.9 --wintype=float --name=terminal --autoclose=1<CR>
-"忘了是干嘛的
-"map <LEADER>t <c-w><c-z>
 "在四个位置分屏
 map sh :set nosplitright<CR>:vsplit<CR>
 map sl :set splitright<CR>:vsplit<CR>
@@ -60,6 +58,7 @@ nnoremap r :call CompileRun()<CR>
 map <LEADER>u :call CUpdate()<CR> 
 "R键功能，刷新
 map R :call F5()<CR>
+inoremap --- -------------------------
 "这里没啥用
 "inoremap ,o <Esc>o
 "inoremap ,O <Esc>O
