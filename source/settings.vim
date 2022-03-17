@@ -9,7 +9,9 @@ if (empty($TMUX))
 endif
 
 " 设置默认折叠方式为缩进
-set foldmethod=indent
+" set foldmethod=indent
+" 设置默认按照语法折叠
+set foldmethod=syntax
 " 关闭打开时自动折叠
 set foldlevelstart=99
 
@@ -41,13 +43,15 @@ set foldlevelstart=99
 
 "gruvbox
 set background=dark
-colorscheme gruvbox
-let g:lightline = {
-	\ 'colorscheme':'ayu_light',
-	\}
+" colorscheme gruvbox
+" colorscheme OceanicNext
+ colorscheme one
+" let g:lightline = {
+"     \ 'colorscheme':'one',
+"     \}
 
 "透明背景
-hi Normal guibg=#ffffffff
+" hi Normal guibg=#ffffffff
 "不区分大小写
 set ic
 

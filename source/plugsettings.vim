@@ -1,4 +1,31 @@
 "nerdcommenter
+
+" rainbow pairs
+ let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
+ 	let g:rainbow_conf = {
+	\	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+	\	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+	\	'operators': '_,_',
+	\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+	\	'separately': {
+	\		'*': {},
+	\		'tex': {
+	\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+	\		},
+	\		'lisp': {
+	\			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+	\		},
+	\		'vim': {
+	\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+	\		},
+	\		'html': {
+	\			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+	\		},
+	\		'css': 0,
+	\	}
+	\}
+
+
 "注释插件
 map <C-p> <space>c<space>
 imap <C-p> <esc><space>c<space>i
@@ -49,7 +76,7 @@ let g:NERDToggleCheckAllLines=1
 "Nerdtree
 "打开目录时打开Nerdtree
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'CocCommand explorer' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 "如果未指定文件，在vim启动时自动打开NERDTree
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && v:this_session == "" | NERDTree | endif
@@ -183,3 +210,114 @@ omap ac <Plug>(coc-classobj-a)
 " Requires 'textDocument/selectionRange' support of language server.
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
+
+" coc-explorer 配置
+:nmap tt <Cmd>CocCommand explorer<CR>
+
+" Defx 配置
+" call defx#custom#option('_', {
+"       \ 'winwidth': 30,
+"       \ 'split': 'vertical',
+"       \ 'direction': 'topleft',
+"       \ 'show_ignored_files': 0,
+"       \ 'buffer_name': '',
+"       \ 'toggle': 1,
+"       \ 'resume': 1
+"       \ })
+
+let g:coc_explorer_global_presets = {
+\   '.vim': {
+\     'root-uri': '~/.config/nvim',
+\   },
+\   'cocConfig': {
+\      'root-uri': '~/.config/coc',
+\   },
+\   'tab': {
+\     'position': 'tab',
+\     'quit-on-open': v:true,
+\   },
+\   'tab:$': {
+\     'position': 'tab:$',
+\     'quit-on-open': v:true,
+\   },
+\   'floating': {
+\     'position': 'floating',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingTop': {
+\     'position': 'floating',
+\     'floating-position': 'center-top',
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingLeftside': {
+\     'position': 'floating',
+\     'floating-position': 'left-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'floatingRightside': {
+\     'position': 'floating',
+\     'floating-position': 'right-center',
+\     'floating-width': 50,
+\     'open-action-strategy': 'sourceWindow',
+\   },
+\   'simplify': {
+\     'file-child-template': '[selection | clip | 1] [indent][icon | 1] [filename omitCenter 1]'
+\   },
+\   'buffer': {
+\     'sources': [{'name': 'buffer', 'expand': v:true}]
+\   },
+\ }
+
+" Use preset argument to open it
+noremap gfd <Cmd>CocCommand explorer --preset .vim<CR>
+noremap ft <Cmd>CocCommand explorer --preset floating<CR>
+noremap gfc <Cmd>CocCommand explorer --preset cocConfig<CR>
+noremap gfb <Cmd>CocCommand explorer --preset buffer<CR>
+
+" List all presets
+nmap fl <Cmd>CocList explPresets<CR>
+
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+
+" set statusline+=%{NearestMethodOrFunction()}
+
+" By default vista.vim never run if you don't call it explicitly.
+"
+" If you want to show the nearest function in your statusline automatically,
+" you can add the following line to your vimrc
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified', 'method' ] ]
+      \ },
+      \ 'component_function': {
+      \   'method': 'NearestMethodOrFunction'
+      \ },
+      \ }
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+let g:vista_default_executive = 'ctags'
+let g:vista_executive_for = {
+			\ 'cpp': 'coc',
+			\ 'php': 'coc',
+			\ }
+let g:vista_ctags_cmd = {
+			\ 'haskell': 'hasktags -x -o - -c',
+			\ }
+let g:vista_fzf_preview = ['right:50%']
+let g:vista#renderer#enable_icon = 1
+let g:vista#renderer#icons = {
+			\   "function": "\uf794",
+			\   "variable": "\uf71b",
+			\  }
+
+nnoremap <silent><nowait> tf :<C-u>Vista!!<cr>
+
+" 输入法设置
+let g:ZFVimIM_pinyin_gitUserEmail='Modolet@163.com'
+let g:ZFVimIM_pinyin_gitUserName='Modolet'
+let g:ZFVimIM_pinyin_gitUserToken='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'

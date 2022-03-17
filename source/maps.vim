@@ -20,7 +20,6 @@ map R :source $MYVIMRC<CR>
 "取消搜索高亮
 map <LEADER><CR> :nohlsearch<CR>
 "开启关闭NERDTree插件（文件列表
-map tt :NERDTreeToggle<CR>
 "开启浮动终端
 nmap tc :FloatermNew --height=0.9 --width=0.9 --wintype=float --name=terminal --autoclose=1<CR>
 "在四个位置分屏
@@ -29,7 +28,7 @@ map sl :set splitright<CR>:vsplit<CR>
 map sk :set nosplitbelow<CR>:split<CR>
 map sj :set splitbelow<CR>:split<CR>
 "打开tagbar插件（函数列表
-map tf :TagbarToggle<CR>
+" map tf :TagbarToggle<CR>
 "新建标签页
 map tu :tabe<CR>
 "切换标签页

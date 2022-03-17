@@ -3,10 +3,31 @@
 " let g:coc_global_extensions = ['coc-snippets','coc-marketplace','coc-vimlsp','coc-sh','coc-pyright','coc-json','coc-cmake','coc-clangd','coc-xml','coc-emmet']
 
 call plug#begin('~/.config/nvim/plugged')
+    " 中文输入法插件
+    Plug 'ZSaberLv0/ZFVimIM'
+    Plug 'ZSaberLv0/ZFVimJob' " 可选, 用于提升词库加载性能
+    Plug 'ZSaberLv0/ZFVimGitUtil'
+    Plug 'ZSaberLv0/ZFVimIM_pinyin'
+    " Plug 'ZSaberLv0/ZFVimIM_openapi' " 百度云输入法
+    Plug 'Modolet/ZFVimIM_pinyin_base' " 你的词库, 确保有 push 权限
+    " " rainbow pairs
+    " Plug 'luochen1990/rainbow'
     " 翻译插件
     Plug 'voldikss/vim-translator'
 	"书呆子树
-	Plug 'scrooloose/nerdtree'
+	"Plug 'scrooloose/nerdtree'
+    " defx nerdtree的新一代替代品
+    " if has('nvim')
+    "     Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+    " else
+    "     Plug 'Shougo/defx.nvim'
+    "     Plug 'roxma/nvim-yarp'
+    "     Plug 'roxma/vim-hug-neovim-rpc'
+    " endif
+    "
+    " " defx icon
+    " Plug 'kristijanhusak/defx-icons'
+
     " Git插件
     Plug 'tpope/vim-fugitive'
 	"代码片段
@@ -15,7 +36,8 @@ call plug#begin('~/.config/nvim/plugged')
 	"markdown
 	Plug 'plasticboy/vim-markdown'
     " 函数列表
-	Plug 'majutsushi/tagbar'
+	" Plug 'majutsushi/tagbar'
+    Plug 'liuchengxu/vista.vim'
     " 顾名思义 救命用
 	Plug 'mbbill/undotree'
     " Markdown预览
@@ -75,4 +97,11 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'gcmt/wildfire.vim'
     "多光标
     Plug 'mg979/vim-visual-multi' 
+    " 主题
+    Plug 'othree/yajs.vim'
+    Plug 'mhartington/oceanic-next'
+    Plug 'othree/html5.vim'
+
+    " rainbow pairs
+    Plug 'luochen1990/rainbow'
     call plug#end()
