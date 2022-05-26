@@ -1,5 +1,6 @@
-"nerdcommenter
-
+lua << EOF
+vim.g.background_transparency = true
+EOF
 " rainbow pairs
  let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
  	let g:rainbow_conf = {
@@ -290,7 +291,7 @@ endfunction
 " you can add the following line to your vimrc
 autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 let g:lightline = {
-      \ 'colorscheme': 'one',
+    \'colorscheme': 'catppuccin',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'modified', 'method' ] ]

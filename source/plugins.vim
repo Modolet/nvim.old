@@ -58,6 +58,7 @@ call plug#begin('~/.config/nvim/plugged')
 	Plug 'ayu-theme/ayu-vim'
 	Plug 'rakr/vim-one'
     Plug 'altercation/vim-colors-solarized'
+    Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 	"html实时预览
 	Plug 'turbio/bracey.vim'
 	"html引擎

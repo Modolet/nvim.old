@@ -5,3 +5,4 @@ source ~/.config/nvim/source/plugins.vim
 source ~/.config/nvim/source/plugsettings.vim
 source ~/.config/nvim/source/settings.vim
 source ~/.config/nvim/source/funcs.vim
+source ~/.config/nvim/source/config.lua

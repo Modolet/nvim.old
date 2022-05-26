@@ -1,3 +1,6 @@
+lua << EOF
+vim.g.background_transparency = true
+EOF
 "真彩色终端
 if (empty($TMUX))
   if (has("nvim"))
@@ -18,40 +21,10 @@ set foldlevelstart=99
 
 " set background=dark " for the dark version
 "set background=light " for the light version
-"colorscheme one
-"let g:lightline = {
-"			\'colorscheme':'one',
-"			\}
-
-"主题
-"ayu
-"let ayucolor="light"
-"colorscheme ayu
-"set background=dark
-"let g:lightline = {
-"	\ 'colorscheme':'ayu_light',
-"	\}
-"colorscheme ayu_light
-
-
-"space_vim_theme light
-"colorscheme space_vim_theme
-"set background=light
-"let g:lightline = {
-"	\ 'colorscheme':'ayu_light',
-"	\}
-
-"gruvbox
 set background=dark
-" colorscheme gruvbox
-" colorscheme OceanicNext
- colorscheme one
-" let g:lightline = {
-"     \ 'colorscheme':'one',
-"     \}
+ colorscheme catppuccin
+ " let g:lightline = {'colorscheme': 'catppuccin'}
 
-"透明背景
-" hi Normal guibg=#ffffffff
 "不区分大小写
 set ic
 
@@ -62,8 +35,9 @@ set mouse=a
 set ts=4 sw=4 et
 
 "其他设置
-set scrolloff=5
+set scrolloff=10
 set cursorline
+let swaswapfile=0
 "set exrc
 "set secure
 "set cursorcolumn
